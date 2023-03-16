@@ -1,0 +1,12 @@
+{% extends 'navbar.html' %}
+{% block content %}
+{{post}}
+ {% for i in post %}
+ {{i.desc}}
+ <image src="{{ i.profile_pic }}">
+{% endfor %}
+{% endblock content %}
+
+
+
+

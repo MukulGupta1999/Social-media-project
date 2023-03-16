@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <!--font awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css">
+    <title>Hello, world!</title>
+  </head>
+  <style>
+
+#nav-logo
+{
+  color: black;
+  font-size: 20px;
+}
+#nav-text
+{
+  color: black;
+  font-size: 16px;
+
+
+}
+#nav-text:hover{
+  transition: all 0.3s ease;
+  color: #82CAFF;
+}
+
+
+  </style>
+  <body>    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+    <center style="font-size: 40px;">
+    
+    </center>
+                          <!--Navbar section-->
+    <div class="navb">
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" style="background-color: white; height: 80px;">
+                                 <!-- <div class="container smooth-scroll"> -->
+        <a class="navbar-brand" style="margin-left: 10px; color:aqua;"><i class="fa-solid fa-icons" style="color: #ff6219;"></i>
+            <span class="h1 fw-bold mb-0" style="color: black; margin-left: 10px; font-family:Brush Script MT;">Finstagram</span></a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            {% comment %} <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="nav-text" role="button" data-toggle="dropdown" aria-expanded="false">
+              <i class="fa fa-clone" style="margin-right: 5px;"></i>Galleries
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="nav-text">
+                <a class="dropdown-item" href="">Book_Events</a>
+                <a class="dropdown-item" href="">Family Events</a>
+                <div class="dropdown-item" href="">Charity Events</div>
+                <a class="dropdown-item" href="">Bussiness Events</a>
+                <a class="dropdown-item" href="">Culture Events</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="" id="nav-text"><i class="fa fa-phone" style="margin-right: 5px;"></i>Contact Us</a>
+            </li> {% endcomment %}
+            
+            
+            
+            
+          {% if request.user.is_authenticated %}
+          <li class="nav-item active" style="margin-left: 100px;">
+            <a class="nav-link" href="#" id="nav-logo"><i class="fa-solid fa-house"></i></a>
+        </li>
+        <li class="nav-item active" style="margin-left: 10px">
+            <a class="nav-link" href="#" id="nav-logo"><i class="fa-solid fa-comment"></i></a>
+        </li>
+        <li class="nav-item active" style="margin-left: 10px">
+            <a class="nav-link" href="#" id="nav-logo"><i class="fa-solid fa-blog"></i></a>
+        </li>
+        <li class="nav-item active" style="margin-left: 10px">
+            <a class="nav-link" href="#" id="nav-logo" ><i class="fa-solid fa-seedling"></i></a>
+        </li>
+        <li class="nav-item active" style="margin-left: 10px">
+            <a class="nav-link" href="#" id="nav-logo" ><i class="fa-solid fa-heart"></i></a>
+        </li>
+        
+            <li class="nav-item active" style="margin-left: 200px;">
+            <a class="nav-link" href="#" id="nav-text"><i class="fa fa-user" style="margin-right: 5px;"></i>{{user.first_name}}<span class="sr-only">(current)</span></a>
+            </li>
+            <div class="hov">
+              <a class="nav-link" href="{% url 'logout' %}" id="nav-text">Logout</a>
+            </div>
+            </li>
+          {% else %}
+
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}" id="nav-text"><i class="fa fa-user" style="margin-right: 5px;"></i>Login</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}" id="nav-text">Register</a>
+            </li>
+          {% endif %}
+
+            </ul>
+            </div>
+      </nav>
+    </div>
+  
+
+    </body>
+</html>
+
+{% block content %}
+{% endblock %}
